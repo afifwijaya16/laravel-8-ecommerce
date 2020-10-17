@@ -1,0 +1,17 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: white;
+}
+.banner img {
+    width: 100%;
+}
+.choise-category img {
+    height: 100px;
+}
+
+.choise-category .card {
+    border-radius: 15px;
+}
+.choise-product .card {
+    border-radius: 7px;
+}
