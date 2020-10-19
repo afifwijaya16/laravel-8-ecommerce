@@ -13,7 +13,8 @@ class OrderDetail extends Model
         'qty_order',
         'total_price',
         'product_id',
-        'pesanan_id',
+        'order_id',
+        'description',
     ];
 
     public function order()

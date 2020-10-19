@@ -4,7 +4,7 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ url('/') }}">Home</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">All Category</li>
+                    <li class="breadcrumb-item active" aria-current="page">{{ !empty($title) ? $title : 'All Category' }}</li>
                 </ol>
             </nav>
         </div>
