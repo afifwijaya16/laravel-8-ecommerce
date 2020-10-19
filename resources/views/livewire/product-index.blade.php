@@ -11,10 +11,13 @@
     </div>
     <div class="row">
         <div class="col">
-            <h3>List Product</h3>
+            <h3>List Product {{ !empty($title) ? $title : '' }}</h3>
         </div>
         <div class="col">
             <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1"><i class="fa fa-search"></i></span>
+                </div>
                 <input type="text" wire:model="search" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="basic-addon1">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon1"><i class="fa fa-search"></i></span>
@@ -37,7 +40,7 @@
                         </div>
                         <div class="row">
                             <div class="col-md-12">
-                                <a href="#" class="btn btn-dark btn-block"><i class="fa fa-eye"></i> Detail</a>
+                                <a href="{{ route('products.detail', $item->id) }}" class="btn btn-dark btn-block"><i class="fa fa-eye"></i> Detail</a>
                             </div>
                         </div>
                     </div>

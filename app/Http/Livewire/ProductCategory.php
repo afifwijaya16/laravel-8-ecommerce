@@ -31,16 +31,18 @@ class ProductCategory extends Component
         if($categoryDetail) {
             $this->category = $categoryDetail;
         }
-        $this->fill(request()->only('search'));
     }
     public function render()
     {
         
         if($this->search !== null ) {
-            $products = Product::where('category_id', $this->category->id)->where('name', 'like', '%'.$this->search.'%')->paginate(8);
+            $product = Product::where('category_id', $this->category->id)->where('name', 'like', '%'.$this->search.'%')->paginate(8);
         } else {
-            $products = Product::where('category_id', $this->category->id)->paginate(8);
+            $product = Product::where('category_id', $this->category->id)->paginate(8);
         }
-        return view('livewire.product-index', ['product' => $products]);
+        if(!empty($this->category->id)) {
+            $title = $this->category->name;
+        }
+        return view('livewire.product-index', compact('product','title'));
     }
 }

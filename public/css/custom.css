@@ -1,5 +1,5 @@
 body {
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
     background-color: white;
 }
 .banner img {
@@ -14,4 +14,18 @@ body {
 }
 .choise-product .card {
     border-radius: 7px;
+}
+.breadcrumb {
+    background-color: transparent;
+    padding: 0;
+}
+
+.breadcrumb a {
+    text-decoration: none;
+}
+.breadcrumb a:hover {
+    text-decoration: none;
+}
+.breadcrumb .active {
+    font-weight: 600;
 }
