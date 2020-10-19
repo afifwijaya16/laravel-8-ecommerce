@@ -21,8 +21,7 @@ class ProductDetail extends Component
 
     public function AddToCart(){
         $this->validate([
-            'qty_order' => 'required|numeric',
-            'description' => 'required'
+            'qty_order' => 'required|numeric'
         ]);
 
         if(!Auth::user()) {
@@ -36,7 +35,7 @@ class ProductDetail extends Component
                 'user_id' => Auth::user()->id,
                 'total_price' => $total_price,
                 'status' => 0,
-                'code_unique' => time(),
+                'code_unique' => mt_rand(100,999),
                 'description' => '-'
             ]);
 
@@ -62,21 +61,21 @@ class ProductDetail extends Component
             $orderedDetail->total_price = $orderedDetail->total_price + $total_price;
             $orderedDetail->update();
         }
-       
+        $this->emit('AddToCart');
         $this->qty_order = 0;
         $this->description = '';
         return redirect()->back()->with('message', 'Success add to cart');
     }
 
-    public function increase() {
-        $this->qty_order++;
-    }
+    // public function increase() {
+    //     $this->qty_order++;
+    // }
 
-    public function decrease() {
-        if($this->qty_order > 1) {
-            $this->qty_order--;
-        }
-    }
+    // public function decrease() {
+    //     if($this->qty_order > 1) {
+    //         $this->qty_order--;
+    //     }
+    // }
 
     public function render()
     {

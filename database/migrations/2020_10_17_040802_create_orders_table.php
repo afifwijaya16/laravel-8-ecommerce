@@ -19,7 +19,7 @@ class CreateOrdersTable extends Migration
             $table->string('status')->default(0);
             $table->integer('total_price');
             $table->integer('code_unique');
-            $table->text('description');
+            $table->text('description')->nullable();
             $table->integer('user_id');
             $table->timestamps();
         });
