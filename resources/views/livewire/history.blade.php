@@ -27,8 +27,8 @@
                             <th>No</th>
                             <th>Code Order</th>
                             <th>Date Order</th>
-                            <th>Descrition</th>
-                            <th>Total Price</th>
+                            <th>Order</th>
+                            <th><strong>Total Price</strong></th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -48,7 +48,6 @@
                                         @endforeach
                                     </table>
                                 </td>
-                                <td>Rp. {{ number_format($order->total_price)}} </td>
                                 <td>
                                     @if ($order->status == 1)
                                         <span class="badge badge-danger">Unpaid</span>
@@ -56,6 +55,8 @@
                                         <span class="badge badge-success">Paid</span>
                                     @endif
                                 </td>
+                                <td><strong>Rp. {{ number_format($order->total_price)}} </strong></td>
+                                
                             </tr>
                         @endforeach
                     </tbody>

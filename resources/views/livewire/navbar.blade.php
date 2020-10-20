@@ -27,9 +27,11 @@
                                 <a class="dropdown-item" href="{{ route('products')}}">All Category</a>
                             </div>
                       </li>
+                      @if(Auth::user())
                       <li class="nav-item active">
                         <a class="nav-link" href="{{ url('/history') }}">History <span class="sr-only"></span></a>
                       </li>
+                      @endif
                 </ul>
 
                 <!-- Right Side Of Navbar -->
