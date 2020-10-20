@@ -9,6 +9,8 @@ use App\Http\Livewire\ProductIndex;
 use App\Http\Livewire\ProductCategory;
 use App\Http\Livewire\ProductDetail;
 use App\Http\Livewire\Cart;
+use App\Http\Livewire\Checkout;
+use App\Http\Livewire\History;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,6 +29,8 @@ Route::get('/products', ProductIndex::class)->name('products');
 Route::get('/products/category/{categoryId}', ProductCategory::class)->name('products.category');
 Route::get('/products/{id}', ProductDetail::class)->name('products.detail');
 Route::get('/cart', Cart::class)->name('cart');
+Route::get('/checkout', Checkout::class)->name('checkout');
+Route::get('/history', History::class)->name('history');
 
 Route::post('/user/logout', [App\Http\Controllers\Auth\LoginController::class, 'logoutUser'])->name('user.logout');
 

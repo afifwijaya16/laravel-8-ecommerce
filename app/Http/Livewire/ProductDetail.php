@@ -59,6 +59,7 @@ class ProductDetail extends Component
         } else {
             $orderedDetail->qty_order = $orderedDetail->qty_order + $this->qty_order;
             $orderedDetail->total_price = $orderedDetail->total_price + $total_price;
+            $orderedDetail->description = $this->description;
             $orderedDetail->update();
         }
         $this->emit('AddToCart');

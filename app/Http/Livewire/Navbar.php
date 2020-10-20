@@ -12,7 +12,7 @@ class Navbar extends Component
     public $amount = 0;
     
     protected $listeners = [
-        'AddToCart' => 'updateCart'
+        'AddToCart' => 'updateCart',
     ];
     
     public function updateCart() {
@@ -20,6 +20,8 @@ class Navbar extends Component
             $ordered = Order::where('user_id', Auth::user()->id)->where('status', 0)->first();
             if($ordered) {
                 $this->amount = OrderDetail::where('order_id', $ordered->id)->count();
+            } else {
+                $this->amount = 0;
             }
         }
     }

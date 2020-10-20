@@ -12,7 +12,7 @@
     <div class="row">
         <div class="col-md-12">
             @if(session('message'))
-                <div class="alert alert-success">
+                <div class="alert alert-danger">
                     {{ session('message') }}
                 </div>
             @endif
@@ -29,7 +29,7 @@
                             <td>Description</td>
                             <td>Qty</td>
                             <td>Price</td>
-                            <td>Total Price</td>
+                            <td></td>
                         </tr>
                     </thead>
                     <tbody>
@@ -39,13 +39,40 @@
                             <td>
                                 <img src="{{ asset($cart->product->image)}}" alt="{{ $cart->product->name }}" height="100px">
                             </td>
-                            <td>{{ $cart->product->name }}</td>
+                            <td>
+                                {{ $cart->product->name }} <br>
+                                {{ $cart->description }}
+                            </td>
                             <td>{{ $cart->qty_order }}</td>
-                            <td>Rp. {{ number_format($cart->product->price) }}</td>
-                            <td>Rp. {{ number_format($cart->total_price) }}</td>
+                            <td align="right"><strong>Rp. {{ number_format($cart->total_price) }}</strong></td>
+                            <td><button wire:click="destroyCart({{$cart->id}})" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button></td>
                         </tr>
-                       
                         @endforeach
+                        @if(!empty($orderGet))
+                            <tr>
+                                <td colspan="4" align="right"> <strong>Total Price</strong></td>
+                                <td align="right"><strong>Rp. {{ number_format($orderGet->total_price) }}</strong></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td colspan="4" align="right"> <strong>Code Unique</strong></td>
+                                <td align="right"><strong>Rp. {{ number_format($orderGet->code_unique) }}</strong> </td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td colspan="4" align="right"> <strong>Grand Price</strong> </td>
+                                <td align="right"><strong>Rp. {{ number_format($orderGet->total_price + $orderGet->code_unique) }}</strong></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td colspan="4"></td>
+                                <td colspan="2">
+                                    <a href="{{ route('checkout')}}" class="btn btn-success btn-block">
+                                        <i class="fa fa-arrow-right"></i> Checkout 
+                                    </a>
+                                </td>
+                            </tr>
+                        @endif
                         @empty($orderDetailGet)
                             <tr>
                                 <td colspan="6" class="text-center"> Cart Empty</td>

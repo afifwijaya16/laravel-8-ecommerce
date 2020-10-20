@@ -12,6 +12,25 @@ class Cart extends Component
     protected $order;
     protected $order_details = [];
 
+    public function destroyCart($id){
+        $order_detail = OrderDetail::find($id);
+        
+        if(!empty($order_detail)) {
+            $order = Order::where('id', $order_detail->order_id)->first();
+            $amount_qty_order = Orderdetail::where('order_id',$order->id)->count();
+            if($amount_qty_order == 1) {
+                $order->delete();
+            } else {
+                $order->total_price = $order->total_price - $order_detail->total_price;
+                $order->update();
+            }
+            $order_detail->delete();
+            $this->emit('AddToCart');
+
+            return redirect()->back()->with('message', 'Success Delete item');
+        }
+        
+    }
     public function render()
     {
         if(Auth::user()){

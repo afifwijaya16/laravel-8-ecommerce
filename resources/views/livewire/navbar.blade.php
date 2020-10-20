@@ -27,6 +27,9 @@
                                 <a class="dropdown-item" href="{{ route('products')}}">All Category</a>
                             </div>
                       </li>
+                      <li class="nav-item active">
+                        <a class="nav-link" href="{{ url('/history') }}">History <span class="sr-only"></span></a>
+                      </li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
