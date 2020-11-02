@@ -67,17 +67,18 @@
                         </div>
                     </li>
                     @else
-                    <li class="nav-item dropdown">
-                        <li class="nav-item">
+                    <li class="nav-item">
                             
-                                <a class="nav-link" href="{{ route('cart')}}">
-                                    <i class="fa fa-shopping-cart" style="font-size:25px"></i>
-                                    @if ($amount !== 0 )
-                                    <span class="badge badge-danger">{{ $amount }}</span>
-                                    @endif
-                                </a>
-                           
-                        </li>
+                        <a class="nav-link" href="{{ route('cart')}}">
+                            <i class="fa fa-shopping-cart" style="font-size:25px"></i>
+                            @if ($amount !== 0 )
+                            <span class="badge badge-danger">{{ $amount }}</span>
+                            @endif
+                        </a>
+                   
+                     </li>
+                    <li class="nav-item dropdown">
+                       
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             {{ Auth::user()->name }} <span class="caret"></span>
