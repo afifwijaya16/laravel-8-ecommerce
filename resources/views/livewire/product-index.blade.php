@@ -40,7 +40,7 @@
                         </div>
                         <div class="row">
                             <div class="col-md-12">
-                                <a href="{{ route('products.detail', $item->id) }}" class="btn btn-dark btn-block"><i class="fa fa-eye"></i> Detail</a>
+                                <a href="{{ route('products.detail', Crypt::encrypt($item->id)) }}" class="btn btn-dark btn-block"><i class="fa fa-eye"></i> Detail</a>
                             </div>
                         </div>
                     </div>

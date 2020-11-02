@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class ProductSeeder extends Seeder
 {
@@ -21,6 +22,7 @@ class ProductSeeder extends Seeder
             'qty' => 100,
             'description' => '-',
             'category_id' => 2,
+            'slug' => Str::slug('CHELSEA 3RD 2018-2019'),
             'image' => 'assets/products/chelsea.png'
         ]);
 
@@ -31,6 +33,7 @@ class ProductSeeder extends Seeder
             'qty' => 100,
             'description' => '-',
             'category_id' => 2,
+            'slug' => Str::slug('LEICESTER CITY HOME 2018-2019'),
             'image' => 'assets/products/leicester.png'
         ]);
 
@@ -41,6 +44,7 @@ class ProductSeeder extends Seeder
             'qty' => 100,
             'description' => '-',
             'category_id' => 2,
+            'slug' => Str::slug('MAN. UNITED AWAY 2018-2019'),
             'image' => 'assets/products/mu.png'
         ]);
 
@@ -51,6 +55,7 @@ class ProductSeeder extends Seeder
             'qty' => 100,
             'description' => '-',
             'category_id' => 2,
+            'slug' => Str::slug('LIVERPOOL AWAY 2018-2019'),
             'image' => 'assets/products/liverpool.png'
         ]);
 
@@ -61,6 +66,7 @@ class ProductSeeder extends Seeder
             'qty' => 100,
             'description' => '-',
             'category_id' => 2,
+            'slug' => Str::slug('TOTTENHAM 3RD 2018-2019'),
             'image' => 'assets/products/tottenham.png'
         ]);
 
@@ -71,6 +77,7 @@ class ProductSeeder extends Seeder
             'qty' => 100,
             'description' => '-',
             'category_id' => 1,
+            'slug' => Str::slug('DORTMUND AWAY 2018-2019'),
             'image' => 'assets/products/dortmund.png'
         ]);
 
@@ -81,6 +88,7 @@ class ProductSeeder extends Seeder
             'qty' => 100,
             'description' => '-',
             'category_id' => 1,
+            'slug' => Str::slug('BAYERN MUNCHEN 3RD 2018 2019'),
             'image' => 'assets/products/munchen.png'
         ]);
 
@@ -91,6 +99,7 @@ class ProductSeeder extends Seeder
             'qty' => 100,
             'description' => '-',
             'category_id' => 4,
+            'slug' => Str::slug('JUVENTUS AWAY 2018-2019'),
             'image' => 'assets/products/juve.png'
         ]);
 
@@ -101,6 +110,7 @@ class ProductSeeder extends Seeder
             'qty' => 100,
             'description' => '-',
             'category_id' => 4,
+            'slug' => Str::slug('AS ROMA HOME 2018-2019'),
             'image' => 'assets/products/asroma.png'
         ]);
 
@@ -111,6 +121,7 @@ class ProductSeeder extends Seeder
             'qty' => 100,
             'description' => '-',
             'category_id' => 4,
+            'slug' => Str::slug('AC MILAN HOME 2018 2019'),
             'image' => 'assets/products/acmilan.png'
         ]);
 
@@ -121,6 +132,7 @@ class ProductSeeder extends Seeder
             'qty' => 100,
             'description' => '-',
             'category_id' => 4,
+            'slug' => Str::slug('LAZIO HOME 2018-2019'),
             'image' => 'assets/products/lazio.png'
         ]);
 
@@ -131,6 +143,7 @@ class ProductSeeder extends Seeder
             'qty' => 100,
             'description' => '-',
             'category_id' => 3,
+            'slug' => Str::slug('REAL MADRID 3RD 2018-2019'),
             'image' => 'assets/products/madrid.png'
         ]);
     }

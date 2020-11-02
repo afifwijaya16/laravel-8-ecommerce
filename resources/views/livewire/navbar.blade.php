@@ -21,7 +21,7 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             @foreach ($category as $item)
-                        <a class="dropdown-item" href="{{ route('products.category', $item->id)}}">{{$item->name}}</a>
+                        <a class="dropdown-item" href="{{ route('products.category', Crypt::encrypt($item->id))}}">{{$item->name}}</a>
                             @endforeach
                             <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="{{ route('products')}}">All Category</a>

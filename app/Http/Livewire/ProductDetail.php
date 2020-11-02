@@ -7,12 +7,14 @@ use App\Models\Product;
 use App\Models\Order;
 use App\Models\OrderDetail;
 use Auth;
+use Crypt;
+
 class ProductDetail extends Component
 {
     public $product, $qty_order, $total_price, $description;
 
     public function mount($id) {
-        $detailId = Product::find($id);
+        $detailId = Product::find(Crypt::decrypt($id));
 
         if($detailId){
             $this->product = $detailId;

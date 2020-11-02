@@ -21,7 +21,7 @@
         <div class="row mt-3">
             @foreach ($category as $item)
             <div class="col-6 col-md-3 py-1">
-                <a href="{{ route('products.category', $item->id)}}">
+                <a href="{{ route('products.category', Crypt::encrypt($item->id))}}">
                     <div class="card shadow">
                         <div class="card-body text-center">
                             <img src="{{asset($item->image)}}" alt="image-{{$item->name}}" class="img-fluid">
@@ -52,7 +52,7 @@
                         </div>
                         <div class="row">
                             <div class="col-md-12">
-                                <a href="{{ route('products.detail',$item->id) }}" class="btn btn-dark btn-block"><i class="fa fa-eye"></i> Detail</a>
+                                <a href="{{ route('products.detail', Crypt::encrypt($item->id)) }}" class="btn btn-dark btn-block"><i class="fa fa-eye"></i> Detail</a>
                             </div>
                         </div>
                     </div>

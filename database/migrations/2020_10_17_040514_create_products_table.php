@@ -22,6 +22,7 @@ class CreateProductsTable extends Migration
             $table->boolean('is_ready')->default(true);
             $table->string('qty');
             $table->string('image');
+            $table->string('slug');
             $table->text('description');
             $table->timestamps();
         });

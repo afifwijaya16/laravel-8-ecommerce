@@ -6,6 +6,7 @@ use Livewire\Component;
 use Livewire\WithPagination;
 use App\Models\Product;
 use App\Models\Category;
+use Crypt;
 
 class ProductCategory extends Component
 {
@@ -26,7 +27,7 @@ class ProductCategory extends Component
 
     public function mount($categoryId) {
         
-        $categoryDetail = Category::find($categoryId);
+        $categoryDetail = Category::find(Crypt::decrypt($categoryId));
 
         if($categoryDetail) {
             $this->category = $categoryDetail;

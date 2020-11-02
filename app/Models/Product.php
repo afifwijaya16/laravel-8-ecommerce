@@ -8,6 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['name', 'price','price_buy','category_id','qty','slug','image','description'];
+
     public function category()
     {
         return $this->belongsTo(Category::class, 'category_id', 'id');
@@ -17,4 +20,9 @@ class Product extends Model
     {
         return $this->hasMany(OrderDetail::class, 'product_id', 'id');
     }
+
+    public function getRouteKeyName() {
+        return 'slug';
+    }
+    
 }
