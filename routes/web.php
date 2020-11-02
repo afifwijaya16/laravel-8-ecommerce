@@ -22,7 +22,7 @@ use App\Http\Livewire\History;
 |
 */
 
-Auth::routes();
+
 
 Route::get('/', Home::class)->name('halamanutama');
 Route::get('/products', ProductIndex::class)->name('products');
@@ -32,6 +32,9 @@ Route::get('/cart', Cart::class)->name('cart');
 Route::get('/checkout', Checkout::class)->name('checkout');
 Route::get('/history', History::class)->name('history');
 
+Auth::routes();
+
+Route::post('/login', [App\Http\Controllers\Auth\LoginController::class, 'login'])->name('user.login');
 Route::post('/user/logout', [App\Http\Controllers\Auth\LoginController::class, 'logoutUser'])->name('user.logout');
 
 Route::prefix('admin')->group(function() {

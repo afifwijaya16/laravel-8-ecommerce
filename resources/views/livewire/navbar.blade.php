@@ -68,14 +68,12 @@
                     </li>
                     @else
                     <li class="nav-item">
-                            
                         <a class="nav-link" href="{{ route('cart')}}">
                             <i class="fa fa-shopping-cart" style="font-size:25px"></i>
                             @if ($amount !== 0 )
                             <span class="badge badge-danger">{{ $amount }}</span>
                             @endif
                         </a>
-                   
                      </li>
                     <li class="nav-item dropdown">
                        
