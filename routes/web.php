@@ -2,8 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\AdminController;
-use App\Http\Controllers\AuthAdmin;
 use App\Http\Livewire\Home;
 use App\Http\Livewire\ProductIndex;
 use App\Http\Livewire\ProductCategory;
@@ -11,6 +9,10 @@ use App\Http\Livewire\ProductDetail;
 use App\Http\Livewire\Cart;
 use App\Http\Livewire\Checkout;
 use App\Http\Livewire\History;
+// admin
+use App\Http\Controllers\AuthAdmin;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\AdminController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -42,6 +44,8 @@ Route::prefix('admin')->group(function() {
     Route::get('/login', [AuthAdmin\LoginController::class, 'showLoginForm'])->name('admin.login');
     Route::post('/login', [AuthAdmin\LoginController::class, 'login'])->name('admin.login.submit');
     Route::post('/logout', [AuthAdmin\LoginController::class, 'logout'])->name('admin.logout');
+    Route::put('/category/perbarui', [CategoryController::class, 'perbarui'])->name('admin.category.perbarui');
+    Route::resource('/category', CategoryController::class);
 });
 
 
