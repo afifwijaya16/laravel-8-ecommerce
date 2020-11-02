@@ -24,7 +24,7 @@ use App\Http\Livewire\History;
 
 Auth::routes();
 
-Route::get('/', Home::class)->name('home');
+Route::get('/', Home::class)->name('halamanutama');
 Route::get('/products', ProductIndex::class)->name('products');
 Route::get('/products/category/{categoryId}', ProductCategory::class)->name('products.category');
 Route::get('/products/{id}', ProductDetail::class)->name('products.detail');
