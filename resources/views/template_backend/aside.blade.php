@@ -14,13 +14,13 @@
              <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                  data-accordion="false">
                  <li class="nav-item">
-                    <a href="{{ route('category.index')}}" class="nav-link">
+                    <a href="{{ route('category.index')}}" class="nav-link {{ request()->is('admin/category*') ? 'active' : '' }}">
                         <i class="far fa-edit nav-icon"></i>
                         <p>Category</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="{{ route('product.index')}}" class="nav-link {{ request()->is('admin/product*') ? 'active' : '' }}">
                         <i class="fa fa-laptop nav-icon"></i>
                         <p>Product</p>
                     </a>

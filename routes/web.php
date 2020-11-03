@@ -12,6 +12,7 @@ use App\Http\Livewire\History;
 // admin
 use App\Http\Controllers\AuthAdmin;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AdminController;
 /*
 |--------------------------------------------------------------------------
@@ -23,8 +24,6 @@ use App\Http\Controllers\AdminController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-
 
 Route::get('/', Home::class)->name('halamanutama');
 Route::get('/products', ProductIndex::class)->name('products');
@@ -46,6 +45,7 @@ Route::prefix('admin')->group(function() {
     Route::post('/logout', [AuthAdmin\LoginController::class, 'logout'])->name('admin.logout');
     Route::put('/category/perbarui', [CategoryController::class, 'perbarui'])->name('admin.category.perbarui');
     Route::resource('/category', CategoryController::class);
+    Route::resource('/product', ProductController::class);
 });
 
 

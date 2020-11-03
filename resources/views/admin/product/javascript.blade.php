@@ -1,14 +1,4 @@
 <script>
-    function editFunction($id) {
-        const formEdit      = 'form-edit-' + $id;
-        var element         = document.getElementById(formEdit);
-        var dataId          = element.getAttribute('data-id');
-        var dataName       = element.getAttribute('data-Name');
-        
-        document.getElementById("EditInputId").value = dataId;
-        document.getElementById("EditInputName").value = dataName;
-    }
-
     function deleteFunction($id) {
         event.preventDefault();
         const form = 'form-delete-' + $id;

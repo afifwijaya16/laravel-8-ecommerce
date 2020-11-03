@@ -27,8 +27,7 @@
                     </div>
                     <div class="form-group">
                         <label for="inputImage">Image</label>
-                        <input type="file" class="form-control form-control-sm @error('image') is-invalid @enderror"
-                            id="inputImage" name="image" placeholder="Masukan image">
+                        <input type="file" class="form-control form-control-sm @error('image') is-invalid @enderror" name="image" placeholder="Masukan image">
                         @error('image')
                         <div class="invalid-feedback">
                             {{ $message }}
