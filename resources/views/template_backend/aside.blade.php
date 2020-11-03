@@ -25,6 +25,31 @@
                         <p>Product</p>
                     </a>
                 </li>
+                <li class="nav-item @if(!empty($dataTransaction)) menu-open @endif">
+                    <a href="#" class="nav-link @if(!empty($dataTransaction)) active @endif">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>
+                            Transaction
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('admin.order.index') }}" class="nav-link {{ request()->is('admin/order*') ? 'active' : '' }}">
+                                <i class="nav-icon fa fa-file"></i>
+                                <p>Order</p>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('admin.sales.index') }}" class="nav-link {{ request()->is('admin/sales*') ? 'active' : '' }}">
+                                <i class="nav-icon fa fa-file"></i>
+                                <p>Sales</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
              </ul>
          </nav>
          <!-- /.sidebar-menu -->

@@ -14,6 +14,8 @@ use App\Http\Controllers\AuthAdmin;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\SalesController;
+use App\Http\Controllers\OrderController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -46,6 +48,8 @@ Route::prefix('admin')->group(function() {
     Route::put('/category/perbarui', [CategoryController::class, 'perbarui'])->name('admin.category.perbarui');
     Route::resource('/category', CategoryController::class);
     Route::resource('/product', ProductController::class);
+    Route::get('/sales', [SalesController::class, 'index'])->name('admin.sales.index');
+    Route::get('/order', [OrderController::class, 'index'])->name('admin.order.index');
 });
 
 

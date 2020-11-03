@@ -160,7 +160,7 @@ class ProductController extends Controller
     public function destroy($id)
     {
         $product = Product::findorfail($id);
-        File::delete($product->gambar);
+        File::delete($product->image);
         $product->delete();
 
         return redirect()->route('product.index')->with('status', 'Delete Data Product Success');
