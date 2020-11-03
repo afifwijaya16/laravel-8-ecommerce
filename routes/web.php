@@ -50,6 +50,7 @@ Route::prefix('admin')->group(function() {
     Route::resource('/product', ProductController::class);
     Route::get('/sales', [SalesController::class, 'index'])->name('admin.sales.index');
     Route::get('/order', [OrderController::class, 'index'])->name('admin.order.index');
+    Route::get('/order/{id}', [OrderController::class, 'show'])->name('admin.order.show');
 });
 
 
