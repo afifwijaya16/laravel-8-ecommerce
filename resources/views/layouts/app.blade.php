@@ -22,6 +22,8 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
     @livewireStyles
+    @livewireScripts
+    <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="SB-Mid-client-eaJAs6do2zUt0W9g"></script>
 </head>
 <body>
     <div id="app">
@@ -34,7 +36,7 @@
         </main>
         @include('layouts.footer')
     </div>
-    @livewireScripts
+    
     <script src="https://cdn.jsdelivr.net/gh/livewire/turbolinks@v0.1.x/dist/livewire-turbolinks.js" data-turbolinks-eval="false"></script>
 </body>
 </html>

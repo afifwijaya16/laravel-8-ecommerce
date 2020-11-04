@@ -14,7 +14,7 @@ class History extends Component
     public function render()
     {
         if(Auth::user()) {
-            $this->order = Order::where('user_id', Auth::user()->id)->where('status', '!=' , 0)->get();
+            $this->order = Order::where('user_id', Auth::user()->id)->where('status', '!=' , 0)->orderBy('created_at','desc')->get();
             $this->order_details = OrderDetail::all();
         }
         return view('livewire.history');

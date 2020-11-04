@@ -70,7 +70,25 @@
                         </span>
                     @enderror
                 </div>
-                <button class="btn btn-dark btn-block"><i class="fa fa-arrow-right"></i> Submit </button>
+                <button class="btn btn-dark btn-block" wire:click="$emit('payment', '{{ $snapToken }}')" id="pay-button"><i class="fa fa-arrow-right"></i> Submit </button>
+                <script type="text/javascript">
+                    window.livewire.on('payment', function (snapToken) {
+                        snap.pay(snapToken, {
+                            // Optional
+                            onSuccess: function (result) {
+                                window.livewire.emit('emptyCart');
+                            },
+                            // Optional
+                            onPending: function (result) {
+                                window.livewire.emit('emptyCart');
+                            },
+                            // Optional
+                            onError: function (result) {
+                                location.reload();
+                            }
+                        });
+                    });
+                </script>
             </form>
         </div>
     </div>

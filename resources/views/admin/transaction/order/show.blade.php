@@ -80,7 +80,7 @@
                                             <tr>
                                                 <td>No</td>
                                                 <td>Image</td>
-                                                <td>Description</td>
+                                                <td>Product</td>
                                                 <td>Qty</td>
                                                 <td>Price</td>
                                             </tr>

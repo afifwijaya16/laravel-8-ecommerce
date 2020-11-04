@@ -51,7 +51,7 @@
                                 <td>
                                     @if ($order->status == 1)
                                         <span class="badge badge-danger">Unpaid</span>
-                                    @else
+                                    @elseif ($order->status == 2) 
                                         <span class="badge badge-success">Paid</span>
                                     @endif
                                 </td>
