@@ -23,7 +23,7 @@
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
     @livewireStyles
     @livewireScripts
-    <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="SB-Mid-client-eaJAs6do2zUt0W9g"></script>
+    
 </head>
 <body>
     <div id="app">
@@ -38,5 +38,6 @@
     </div>
     
     <script src="https://cdn.jsdelivr.net/gh/livewire/turbolinks@v0.1.x/dist/livewire-turbolinks.js" data-turbolinks-eval="false"></script>
+    <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="{{ config('services.midtrans.clientKey') }}"></script>
 </body>
 </html>

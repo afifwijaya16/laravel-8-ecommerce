@@ -54,7 +54,7 @@
                                     <div class="input-group-prepend">
                                         {{-- <button class="btn btn-danger" wire:click="decrease"><i class="fa fa-minus"></i></button> --}}
                                     </div>
-                                    <input id="qty_order" type="number" min="0" onkeyup="myFunc()" wire:model="qty_order" class="form-control col-3 text-center" value="{{ $qty_order }}">
+                                    <input id="qty_order" type="number" min="0" wire:model="qty_order" class="form-control col-3 text-center" value="{{ $qty_order }}">
                                     @error('qty_order')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -101,10 +101,3 @@
         </div>
     </div>
 </div>
-<script>
-    var fnf = document.getElementById("formattedNumberField");
-    fnf.addEventListener('keyup', function(evt){
-        var n = parseInt(this.value.replace(/\D/g,''),10);
-        fnf.value = n.toLocaleString();
-    }, [false]);
-</script>

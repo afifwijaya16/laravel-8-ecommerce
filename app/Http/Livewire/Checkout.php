@@ -10,13 +10,19 @@ use App\Models\OrderDetail;
 
 class Checkout extends Component
 {
-    public $total_price, $name, $no_phone, $address, $snapToken;
+    public $total_price, $name, $no_phone, $address, $formCheckout, $snapToken;
+
+    protected $listeners = [
+        'emptyCart' => 'emptyCartHandler',
+        'successCart' => 'successCartHandler',
+    ];
 
     public function mount() {
         if(!Auth::user()) {
             return redirect()->route('login');
         }
 
+        $this->formCheckout = true;
         $this->name = Auth::user()->name;
         $this->no_phone = Auth::user()->no_phone;
         $this->address = Auth::user()->address;
@@ -28,10 +34,6 @@ class Checkout extends Component
             return redirect()->route('home');
         }
     }
-
-    protected $listeners = [
-        'emptyCart' => 'emptyCartHandler'
-    ];
 
     public function checkout() {
         $this->validate([
@@ -57,14 +59,16 @@ class Checkout extends Component
             'first_name' => $order->user->name,
             'last_name' => $order->user_id,
             'email' =>  $order->user->email,
-            'phone' => $this->no_phone,
-            'address' => $this->address
+            'phone' => $order->user->no_phone,
+            'address' => $order->user->address
         ];
 
         $payload = [
             'transaction_details' => $transactionDetails,
             'customer_details' => $customerDetails
         ];
+
+        $this->formCheckout = false;
 
         // Set your Merchant Server Key
         \Midtrans\Config::$serverKey = config('services.midtrans.serverKey');
@@ -78,6 +82,7 @@ class Checkout extends Component
         $snapToken = \Midtrans\Snap::getSnapToken($payload);
 
         $this->snapToken = $snapToken;
+
     }
     
     public function render()
@@ -89,6 +94,16 @@ class Checkout extends Component
     {
         $order = Order::where('user_id', Auth::user()->id)->where('status', 0)->first();
         $order->status = 1;
+        $order->update();
+        $this->emit('AddToCart');
+        session()->flash('message', 'Success Checkout ');
+        return redirect()->route('history');
+    }
+
+    public function successCartHandler()
+    {
+        $order = Order::where('user_id', Auth::user()->id)->where('status', 0)->first();
+        $order->status = 2;
         $order->update();
         $this->emit('AddToCart');
         session()->flash('message', 'Success Checkout ');
